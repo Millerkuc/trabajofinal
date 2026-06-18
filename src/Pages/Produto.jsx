@@ -15,12 +15,18 @@ const [produto,setProduto]=useState(null);
 useEffect(()=>{
 
 
+const lista = JSON.parse(
+localStorage.getItem("produtos")
+) || [];
 
-const lista = JSON.parse(localStorage.getItem("produtos"));
+
 
 const encontrado = lista.find(
+
 p=>p.id == id
+
 );
+
 
 
 setProduto(encontrado);
@@ -34,9 +40,19 @@ setProduto(encontrado);
 
 if(!produto){
 
-return <h2>Produto não encontrado</h2>
+
+return(
+
+<h2 className="p-5">
+
+Produto não encontrado
+
+</h2>
+
+)
 
 }
+
 
 
 
@@ -44,6 +60,7 @@ return(
 
 
 <main className="p-5">
+
 
 
 <img
@@ -58,15 +75,23 @@ className="h-60 mx-auto"
 
 
 
-<h1 className="text-3xl font-bold mt-5">
+
+<h1 className="
+text-3xl
+font-bold
+mt-5
+">
+
 
 {produto.name}
+
 
 </h1>
 
 
 
-<p className="mt-3">
+
+<p>
 
 {produto.description}
 
@@ -74,48 +99,24 @@ className="h-60 mx-auto"
 
 
 
-<h2 className="font-bold mt-5">
 
-Detalhes:
+<h2 className="mt-5 font-bold">
+
+
+R$ {produto.price}
+
 
 </h2>
 
 
 
-<p>
-
-{produto.details}
-
-</p>
-
-
-
-<p className="mt-3">
-
-Volume: {produto.volume}
-
-</p>
-
-
-<p>
-
-Álcool: {produto.abv}
-
-</p>
-
-
-
-<p className="text-xl font-bold mt-3">
-
-R$ {produto.price}
-
-</p>
-
 
 
 <button
 
+
 onClick={()=>adicionar(produto)}
+
 
 className="
 bg-green-600
@@ -124,12 +125,17 @@ px-5
 py-2
 rounded
 mt-5
+hover:bg-green-700
 active:scale-95
+transition-all
 "
+
 
 >
 
+
 Adicionar ao carrinho
+
 
 </button>
 

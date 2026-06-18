@@ -1,113 +1,112 @@
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 
 
-export default function ProdutoCard({ produto, adicionar }) {
+export default function ProdutoCard({produto,adicionar}){
 
 
-    return (
+return(
 
 
-        <article className="
-        border
-        rounded-lg
-        shadow
-        p-4
-        bg-white
-        dark:bg-gray-800
-        transition
-        hover:scale-105
-        ">
+<div
+
+className="
+bg-slate-800
+text-white
+rounded
+p-4
+shadow
+hover:scale-105
+transition-all
+"
 
 
-            <img
-
-                src={produto.image}
-
-                alt={`Imagem da cerveja ${produto.name}`}
-
-                className="
-                h-48
-                w-full
-                object-contain
-                mb-4
-                "
-
-            />
+>
 
 
+<img
 
-            <h2 className="
-            font-bold
-            text-xl
-            ">
+src={produto.image}
 
-                {produto.name}
+alt={produto.name}
 
-            </h2>
+className="
+h-40
+mx-auto
+"
+
+ />
 
 
 
+<h2 className="font-bold mt-3">
 
-            <p className="
-            text-gray-600
-            dark:text-gray-300
-            mt-2
-            ">
+{produto.name}
 
-                {produto.description}
-
-            </p>
+</h2>
 
 
 
+<p>
 
-            <p className="
-            font-bold
-            mt-3
-            ">
+{produto.description}
 
-                R$ {produto.price.toFixed(2)}
-
-            </p>
+</p>
 
 
 
+<p>
 
+R$ {produto.price}
 
-            <button
-
-                onClick={() => adicionar(produto)}
-
-                className="
-                bg-green-600
-                text-white
-                px-4
-                py-2
-                rounded
-                mt-4
-                w-full
-                active:scale-95
-                transition
-                "
-
-            >
-
-                Adicionar ao carrinho
-
-            </button>
+</p>
 
 
 
+<button
+
+onClick={()=>adicionar(produto)}
+
+className="
+bg-green-600
+w-full
+p-2
+rounded
+mt-3
+hover:bg-green-700
+active:scale-95
+"
+
+>
+
+Adicionar ao carrinho
+
+</button>
 
 
-            
+
+<Link
+
+to={`/produto/${produto.id}`}
+
+className="
+block
+mt-3
+text-center
+underline
+"
+
+>
+
+Ver detalhes
+
+</Link>
 
 
 
-        </article>
+</div>
 
 
-    )
 
+)
 
 }

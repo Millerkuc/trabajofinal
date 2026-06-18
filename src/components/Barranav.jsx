@@ -1,49 +1,58 @@
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
-export default function Barranav({dark,setDark,cart}){
+export default function Barranav({cart}){
 
 
 return(
 
-<nav className="p-4 flex justify-between bg-green-600 text-white">
+
+<header>
+
+
+<nav className="
+bg-green-600
+text-white
+p-4
+flex
+justify-between
+items-center
+">
 
 
 <h1 className="font-bold">
-Loja do Gustavo
+
+Nature Beer
+
 </h1>
 
 
-<div className="flex gap-3">
+
+<div className="flex gap-5">
 
 
 <Link to="/">
+
 Inicio
+
 </Link>
+
 
 
 <Link to="/carrinho">
+
 Carrinho ({cart.length})
+
 </Link>
 
 
-<button
 
-onClick={()=>setDark(!dark)}
+<Link to="/checkout">
 
-className="
-bg-black 
-px-3 
-rounded
-active:scale-95
-transition
-"
+Checkout
 
->
+</Link>
 
-🍻
-
-</button>
 
 
 </div>
@@ -52,6 +61,10 @@ transition
 </nav>
 
 
+</header>
+
+
 )
+
 
 }
